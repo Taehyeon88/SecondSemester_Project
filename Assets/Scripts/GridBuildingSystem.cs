@@ -50,7 +50,7 @@ public class GridBuildingSystem : MonoBehaviour
                 {
                     PlaceBuilding(gridPosition);
                 }
-                else if(Input.GetMouseButtonDown(1))
+                if(Input.GetMouseButtonDown(1))
                 {
                     RemoveBuilding(gridPosition);
                 }

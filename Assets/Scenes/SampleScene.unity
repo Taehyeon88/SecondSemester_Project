@@ -274,6 +274,8 @@ GameObject:
   - component: {fileID: 394672966}
   - component: {fileID: 394672965}
   - component: {fileID: 394672970}
+  - component: {fileID: 394672972}
+  - component: {fileID: 394672971}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -423,6 +425,35 @@ MonoBehaviour:
   yMaxLimit: 150
   mouseSenesitivity: 2
   isFirstPerson: 1
+  fallingThrexhold: -0.1
+  groundCheckDistance: 0.3
+  slopedLimit: 45
+--- !u!114 &394672971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 394672964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 621afe79e78582e47a748010e29e9baf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &394672972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 394672964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e2163db93b3e204881342657d1fcbf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currenState: {fileID: 0}
+  playerController: {fileID: 394672970}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
