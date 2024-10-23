@@ -3,16 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //PlayerState 모든 플레이어 상태의 기본이 되는 추상 클래스
-public class PlayerState : MonoBehaviour
+public abstract class PlayerState
 {
     protected PlayerStateMachine stateMachine;       //상태 머신에 대한 참조 (이후 구현)
     protected PlayerController playerController;        //플레이어 컨트롤러에 대한 참조
+    protected PlayerAnimationManager animationManager;  
 
     //생성자 상태 머신과 플레이어 컨트롤러 참조 초기화
     public PlayerState(PlayerStateMachine stateMachine)
     {
         this.stateMachine = stateMachine;
         this.playerController = stateMachine.playerController;   //게임 오브젝트에 붙어있는 PlayerController를 참조
+        this.animationManager = stateMachine.GetComponent<PlayerAnimationManager>();
         
     }
 
@@ -71,11 +73,14 @@ public class IdleState : PlayerState
 
 public class MovingState : PlayerState
 {
-
+    private bool isRunning;
     public MovingState(PlayerStateMachine stateMachine) : base(stateMachine) { }
 
     public override void Update()
     {
+        //달리기 입력 확인
+        isRunning = Input.GetKey(KeyCode.LeftShift);
+
         CheckTransitions();
     }
 
