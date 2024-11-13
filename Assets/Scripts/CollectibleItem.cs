@@ -18,7 +18,12 @@ public class CollectibleItem : MonoBehaviour
         if(!canCollect) return;
 
         inventory.AddItem(itemType);
-        Debug.Log($"{itemName} 수집완료");
+        
+        if (FloatingTextManager.instance != null)
+        {
+            Vector3 textPosition = transform.position + Vector3.up * 0.5f;
+            FloatingTextManager.instance.Show($"+{itemName}", textPosition);
+        }
         StartCoroutine(RespawnRoutine());
     }
     //아이템 리스폰을 처리하는 코루틴
