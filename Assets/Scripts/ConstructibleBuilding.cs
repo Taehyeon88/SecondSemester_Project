@@ -5,7 +5,7 @@ using UnityEngine;
 public class ConstructibleBuilding : MonoBehaviour
 {
     [Header("Building Settings")]
-    public BuildingTypes buildingType;
+    public BuildingType buildingType;
     public string buildingName;
     public int requiredTree = 5;
     public float constructionTime = 2.0f;
