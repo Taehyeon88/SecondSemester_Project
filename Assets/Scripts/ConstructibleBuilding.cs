@@ -17,7 +17,7 @@ public class ConstructibleBuilding : MonoBehaviour
     void Start()
     {
         buildingMaterial = GetComponent<MeshRenderer>().material;
-        //
+        
         Color color = buildingMaterial.color;
         color.a = 0.5f;
         buildingMaterial.color = color;
@@ -35,6 +35,7 @@ public class ConstructibleBuilding : MonoBehaviour
             {
                 FloatingTextManager.instance.Show($"{buildingName} 건설시작!", transform.position + Vector3.up);
             }
+            StartCoroutine(ConstructionRoutine());
         }
         else
         {
@@ -45,7 +46,7 @@ public class ConstructibleBuilding : MonoBehaviour
         }
     }
 
-    private IEnumerator ConstrutionRoutine()
+    private IEnumerator ConstructionRoutine()
     {
         canBuild = false;
         float timer = 0;
@@ -64,11 +65,5 @@ public class ConstructibleBuilding : MonoBehaviour
         {
             FloatingTextManager.instance.Show($"{buildingName} 건설완료!", transform.position + Vector3.up);
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

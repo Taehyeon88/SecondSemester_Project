@@ -26,6 +26,7 @@ public class BuildingDetector : MonoBehaviour
             lastPosition = transform.position;    //현재 위치를 마지막 위치로 업데이트
         }
 
+        //가까운 아이템이 있고 F키를 눌렀을 때 건설
         if (currentNearbyBuilding != null && Input.GetKeyDown(KeyCode.F))
         {
             if (!currentNearbyBuilding.isConstrcted)
